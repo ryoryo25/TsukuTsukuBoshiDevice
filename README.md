@@ -1,5 +1,41 @@
 # TsukuTsukuBoshiDevice
 
-This is a linux kernel module adding a character device to simulate the sounds of [ツクツクボウシ](https://ja.wikipedia.org/wiki/ツクツクボウシ) (_Tsuku-Tsuku-Boshi_; [_Meimuna opalifera_](https://en.wikipedia.org/wiki/Meimuna_opalifera)).
+This is a Linux kernel module adding a character device to simulate the sounds of [ツクツクボウシ](https://ja.wikipedia.org/wiki/ツクツクボウシ) (_Tsuku-Tsuku-Boshi_; [_Meimuna opalifera_](https://en.wikipedia.org/wiki/Meimuna_opalifera)).
 
-<blockquote class="twitter-tweet"><p lang="ja" dir="ltr">【令和最新版】ツクツクボーシ 鳴き声 図解 <a href="https://t.co/xc4xrVJhDx">pic.twitter.com/xc4xrVJhDx</a></p>&mdash; Windymelt(めるくん)🚀❤️‍🔥さんと他1000人 (@windymelt) <a href="https://twitter.com/windymelt/status/1424087366872956928?ref_src=twsrc%5Etfw">August 7, 2021</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+Example of execution is something like this:
+```bash
+$ sudo cat /dev/tsukutsuku
+ジー...ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ジー...ツクツクツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ジー...ツクツクボーシ！ツクツクボーシ！ツクツクボーシ！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ウイヨース！ジー...ツクツクツクツクボーシ！ツクツクボーシ！.......
+```
+
+## How to use
+
+1. Build & install the module:
+```bash
+make
+make install
+```
+
+2. Character device named `tsukutsuku` is now installed under the `/dev/` directory.
+
+3. Use `/dev/tsukutsuku` as source of text input. **NOTE: `sudo` maybe needed**
+```bash
+sudo cat /dev/tsukutsuku
+```
+
+### How to uninstall
+
+Run the following command to uninstall this module.
+```bash
+make uninstall
+```
+
+## Background
+
+This module runs a probabilistic automaton internally to simulate the sounds of ツクツクボウシ. This idea is based on [this tweet](https://twitter.com/windymelt/status/1424087366872956928) that depicts the pattern of the songs of ツクツクボウシ using a nondeterministic finite automaton (the following picture).
+
+![NFA of the sounds of ツクツクボウシ](https://pbs.twimg.com/media/E8Nf5CaVgAE48dC?format=png&name=900x900)
+
+The probabilities of each nondeterministic transition are decided from my experience.
+
+Additionally, this module was originally created for an assignment in my graduate school class of Linux kernel.
