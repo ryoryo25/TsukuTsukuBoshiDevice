@@ -32,7 +32,7 @@ make uninstall
 
 ## Background
 
-This module runs a probabilistic automaton internally to simulate the sounds of ツクツクボウシ. This idea is based on [this tweet](https://twitter.com/windymelt/status/1424087366872956928) that depicts the pattern of the songs of ツクツクボウシ using a nondeterministic finite automaton (the following picture).
+This module simulates a probabilistic automaton internally to generate the sounds of ツクツクボウシ. This idea is based on [this tweet](https://twitter.com/windymelt/status/1424087366872956928) that depicts the pattern of the songs of ツクツクボウシ using a nondeterministic finite automaton (the following picture).
 
 ![NFA of the sounds of ツクツクボウシ](https://pbs.twimg.com/media/E8Nf5CaVgAE48dC?format=png&name=900x900)
 
