@@ -10,6 +10,12 @@ $ sudo cat /dev/tsukutsuku
 
 ## How to use
 
+0. Clone this repo & move into the directory
+```bash
+git clone https://github.com/ryoryo25/TsukuTsukuBoshiDevice.git
+cd TsukuTsukuBoshiDevice
+```
+
 1. Build & install the module:
 ```bash
 make
